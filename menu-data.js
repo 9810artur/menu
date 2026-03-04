@@ -1,35 +1,118 @@
 const menu = [
     {
-        name: 'Ակնի',
-        description: 'Խորոված միս հավի',
-        price: 4500,
+        category: 'Холодные закуски',
+        items: [
+            {
+                name: 'Долма',
+                description: 'Нежные листья винограда с фаршем',
+                price: 500
+            },
+            {
+                name: 'Хумус',
+                description: 'Паста из нута с тахини',
+                price: 300
+            },
+            {
+                name: 'Баба гануш',
+                description: 'Пюре из баклажанов с тахини',
+                price: 350
+            }
+        ]
     },
     {
-        name: 'Ողորմության Պանիր',
-        description: 'Հոված երիցուկ',
-        price: 3000,
+        category: 'Салаты',
+        items: [
+            {
+                name: 'Салат из свежих овощей',
+                description: 'Сочетание свежих овощей с оливковым маслом',
+                price: 250
+            },
+            {
+                name: 'Греческий салат',
+                description: 'Салат с фетой и оливками',
+                price: 400
+            }
+        ]
     },
     {
-        name: 'Քյուֆտեր',
-        description: 'Խորոված միս կառավարիչ',
-        price: 5500,
+        category: 'Горячие блюда',
+        items: [
+            {
+                name: 'Хаш',
+                description: 'Традиционное армянское блюдо из говядины',
+                price: 800
+            },
+            {
+                name: 'Кюфта',
+                description: 'Фрикадельки из говядины и риса',
+                price: 600
+            },
+            {
+                name: 'Шашлыки',
+                description: 'Мясо, запеченное на гриле',
+                price: 900
+            }
+        ]
     },
     {
-        name: 'Հաց',
-        description: 'Չորահաց',
-        price: 500,
+        category: 'Напитки',
+        items: [
+            {
+                name: 'Тан',
+                description: 'Ферментированный молочный напиток',
+                price: 150
+            },
+            {
+                name: 'Кофе',
+                description: 'Ароматный кофе',
+                price: 200
+            },
+            {
+                name: 'Вино',
+                description: 'Армянское красное вино',
+                price: 500
+            },
+            {
+                name: 'Коньяк',
+                description: 'Армянский коньяк',
+                price: 700
+            }
+        ]
     },
+    {
+        category: 'Десерты',
+        items: [
+            {
+                name: 'Пахлава',
+                description: 'Сладкое слоеное тесто с орехами',
+                price: 250
+            },
+            {
+                name: 'Гата',
+                description: 'Сладкий пирог с маслом и орехами',
+                price: 300
+            }
+        ]
+    }
 ];
 
-function displayMenu() {
-    const menuContainer = document.getElementById('menu');
-    menuContainer.innerHTML = '';
-    menu.forEach(item => {
-        const menuItem = document.createElement('div');
-        menuItem.className = 'menu-item';
-        menuItem.innerHTML = `<h3>${item.name}</h3><p>${item.description}</p><p>Price: ${item.price} AMD</p>`;
-        menuContainer.appendChild(menuItem);
+function displayMenu(menuData) {
+    console.log('Меню ресторана:');
+    menuData.forEach(category => {
+        console.log(`\n${category.category}:`);
+        category.items.forEach(item => {
+            console.log(`- ${item.name}: ${item.description} (Цена: ${item.price} AMD)`);
+        });
     });
 }
 
-document.addEventListener('DOMContentLoaded', displayMenu);
+function searchMenu(menuData, query) {
+    return menuData.flatMap(category => 
+        category.items.filter(item => item.name.includes(query) || item.description.includes(query))
+    );
+}
+
+function filterMenuByCategory(menuData, categoryName) {
+    const category = menuData.find(category => category.category === categoryName);
+    return category ? category.items : [];
+}
