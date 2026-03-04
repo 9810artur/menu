@@ -1,118 +1,51 @@
-const menu = [
-    {
-        category: 'Холодные закуски',
-        items: [
-            {
-                name: 'Долма',
-                description: 'Нежные листья винограда с фаршем',
-                price: 500
-            },
-            {
-                name: 'Хумус',
-                description: 'Паста из нута с тахини',
-                price: 300
-            },
-            {
-                name: 'Баба гануш',
-                description: 'Пюре из баклажанов с тахини',
-                price: 350
-            }
-        ]
-    },
-    {
-        category: 'Салаты',
-        items: [
-            {
-                name: 'Салат из свежих овощей',
-                description: 'Сочетание свежих овощей с оливковым маслом',
-                price: 250
-            },
-            {
-                name: 'Греческий салат',
-                description: 'Салат с фетой и оливками',
-                price: 400
-            }
-        ]
-    },
-    {
-        category: 'Горячие блюда',
-        items: [
-            {
-                name: 'Хаш',
-                description: 'Традиционное армянское блюдо из говядины',
-                price: 800
-            },
-            {
-                name: 'Кюфта',
-                description: 'Фрикадельки из говядины и риса',
-                price: 600
-            },
-            {
-                name: 'Шашлыки',
-                description: 'Мясо, запеченное на гриле',
-                price: 900
-            }
-        ]
-    },
-    {
-        category: 'Напитки',
-        items: [
-            {
-                name: 'Тан',
-                description: 'Ферментированный молочный напиток',
-                price: 150
-            },
-            {
-                name: 'Кофе',
-                description: 'Ароматный кофе',
-                price: 200
-            },
-            {
-                name: 'Вино',
-                description: 'Армянское красное вино',
-                price: 500
-            },
-            {
-                name: 'Коньяк',
-                description: 'Армянский коньяк',
-                price: 700
-            }
-        ]
-    },
-    {
-        category: 'Десерты',
-        items: [
-            {
-                name: 'Пахлава',
-                description: 'Сладкое слоеное тесто с орехами',
-                price: 250
-            },
-            {
-                name: 'Гата',
-                description: 'Сладкий пирог с маслом и орехами',
-                price: 300
-            }
-        ]
-    }
+// Sample menu data array
+const menuData = [
+    { id: 1, name: 'Pasta', category: 'Italian' },
+    { id: 2, name: 'Sushi', category: 'Japanese' },
+    { id: 3, name: 'Tacos', category: 'Mexican' },
+    { id: 4, name: 'Burger', category: 'American' },
+    { id: 5, name: 'Pizza', category: 'Italian' },
 ];
 
-function displayMenu(menuData) {
-    console.log('Меню ресторана:');
-    menuData.forEach(category => {
-        console.log(`\n${category.category}:`);
-        category.items.forEach(item => {
-            console.log(`- ${item.name}: ${item.description} (Цена: ${item.price} AMD)`);
-        });
+// DOM elements
+const menuContainer = document.getElementById('menuContainer');
+const searchInput = document.getElementById('searchInput');
+const categorySelect = document.getElementById('categorySelect');
+const scrollToTopButton = document.getElementById('scrollToTopButton');
+
+// Render menu items
+function renderMenu(items) {
+    menuContainer.innerHTML = '';
+    items.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'menu-item';
+        div.innerHTML = `<h3>${item.name}</h3><p>Category: ${item.category}</p>`;
+        menuContainer.appendChild(div);
     });
 }
 
-function searchMenu(menuData, query) {
-    return menuData.flatMap(category => 
-        category.items.filter(item => item.name.includes(query) || item.description.includes(query))
-    );
+// Filter menu items based on search input and selected category
+function filterMenu() {
+    const searchTerm = searchInput.value.toLowerCase();
+    const selectedCategory = categorySelect.value;
+
+    const filteredItems = menuData.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+        const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+        return matchesSearch && matchesCategory;
+    });
+
+    renderMenu(filteredItems);
 }
 
-function filterMenuByCategory(menuData, categoryName) {
-    const category = menuData.find(category => category.category === categoryName);
-    return category ? category.items : [];
-}
+// Add event listeners for search input and category select
+searchInput.addEventListener('input', filterMenu);
+categorySelect.addEventListener('change', filterMenu);
+
+// Scroll to top button functionality
+scrollToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Initial render
+renderMenu(menuData);
