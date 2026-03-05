@@ -239,3 +239,46 @@ footer a:hover {
         right: 20px;
     }
 }
+
+/* Sticky навигация по категориям */
+.menu-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Ряд с кнопкой "Категории" */
+.nav-toggle-row {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 10px;
+}
+
+.toggle-cats {
+  border: 1px solid rgba(255, 122, 0, 0.55);
+  background: #fff;
+  color: #ff7a00;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Контейнер с кнопками категорий */
+.nav-controls {
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+
+/* Компактный режим: скрываем категории, оставляем только кнопку */
+.menu-nav.is-collapsed .nav-controls {
+  display: none;
+}
+
+/* Чуть меньше отступов, чтобы меню не "прыгало" */
+.menu-nav.is-collapsed {
+  padding-bottom: 2px;
+}
