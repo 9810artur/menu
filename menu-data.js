@@ -346,6 +346,15 @@ function setHeader(title, subtitle) {
   if (subEl) subEl.textContent = subtitle;
 }
 
+function slugifyCategory(name) {
+  return (name || '')
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\p{L}\p{N}\-]+/gu, ''); // сохраняем кириллицу/буквы/цифры
+}
+
 function renderMenu(categories) {
   const container = document.getElementById('menuContainer');
   if (!container) return;
@@ -356,6 +365,10 @@ function renderMenu(categories) {
     const section = document.createElement('section');
     section.className = 'category-section';
 
+    // Якорь для скролла
+    const catId = `cat-${slugifyCategory(cat.category)}`;
+    section.id = catId;
+
     const h2 = document.createElement('h2');
     h2.className = 'category-title';
     h2.textContent = cat.category;
@@ -364,7 +377,7 @@ function renderMenu(categories) {
     const grid = document.createElement('div');
     grid.className = 'menu-grid';
 
-    cat.items.forEach(item => {
+    (cat.items || []).forEach(item => {
       const card = document.createElement('div');
       card.className = 'menu-item';
 
