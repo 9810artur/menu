@@ -1,11 +1,12 @@
-// menu-data.js
-// Одна страница: переключатель меню (Основное / Барное / Постное) + категории + поиск
+// Жамэль — меню (одна страница)
+// Переключение: Основное / Барное / Постное
+// Фильтрация по категориям + поиск
 
 const MENUS = {
   main: {
     id: 'main',
-    title: 'Основное меню',
-    subtitle: 'Традиционная кухня Армении',
+    title: 'Жамэль',
+    subtitle: 'Смесь традиционной армянской кухни с нотками европейской',
     categories: [
       {
         category: 'Холодные закуски',
@@ -47,17 +48,14 @@ const MENUS = {
         items: [
           { name: 'Тан', description: 'Традиционный армянский напиток на основе мацуна', price: 150, emoji: '🥛' },
           { name: 'Армянский кофе', description: 'Крепкий кофе по-восточному', price: 200, emoji: '☕' },
-          { name: 'Компот из сухофруктов', description: 'Домашний компот', price: 180, emoji: '🍹' },
-          { name: 'Армянское вино', description: 'Красное/белое вино местного производства', price: 500, emoji: '🍷' },
-          { name: 'Армянский коньяк', description: 'Выдержанный коньяк', price: 800, emoji: '🥃' }
+          { name: 'Компот из сухофруктов', description: 'Домашний компот', price: 180, emoji: '🍹' }
         ]
       },
       {
         category: 'Десерты',
         items: [
           { name: 'Пахлава', description: 'Слоёное тесто с орехами и мёдом', price: 350, emoji: '🍰' },
-          { name: 'Гата', description: 'Сладкий армянский пирог', price: 300, emoji: '🥐' },
-          { name: 'Варенье из абрикосов', description: 'Домашнее варенье', price: 250, emoji: '🍯' }
+          { name: 'Гата', description: 'Сладкий армянский пирог', price: 300, emoji: '🥐' }
         ]
       }
     ]
@@ -65,100 +63,88 @@ const MENUS = {
 
   bar: {
     id: 'bar',
-    title: 'Барное меню',
-    subtitle: 'Напитки и коктейли',
+    title: 'Жамэль — Бар',
+    subtitle: 'Барное меню (в процессе заполнения)',
     categories: [
-      {
-        category: 'Бар',
-        items: [
-          { name: 'Барное меню', description: 'Пока не заполнено — добавим по фото', price: '', emoji: '🍸' }
-        ]
-      }
+      { category: 'Бар', items: [{ name: 'Скоро', description: 'Пришлите фото барного меню — добавлю', price: '', emoji: '🍸' }] }
     ]
   },
 
   lenten: {
     id: 'lenten',
-    title: 'Постное меню',
-    subtitle: 'Блюда без продуктов животного происхождения',
+    title: 'Жамэль — Постное',
+    subtitle: 'Постное меню (в процессе заполнения)',
     categories: [
-      {
-        category: 'Постное',
-        items: [
-          { name: 'Постное меню', description: 'Пока не заполнено — добавим по фото', price: '', emoji: '🌿' }
-        ]
-      }
+      { category: 'Постное', items: [{ name: 'Скоро', description: 'Пришлите фото постного меню — добавлю', price: '', emoji: '🌿' }] }
     ]
   }
 };
 
 let currentMenuId = 'main';
 
-function normalizePrice(price) {
-  if (price === null || price === undefined || price === '') return '';
-  if (typeof price === 'number') return `${price} ₽`;
-  return `${price} ₽`;
+function priceText(p) {
+  if (p === null || p === undefined || p === '') return '';
+  return `${p} ₽`;
 }
 
-function safeEmoji(item) {
-  const e = item && item.emoji ? String(item.emoji).trim() : '';
-  return e || '🍽️';
+function safeEmoji(e) {
+  const s = (e ?? '').toString().trim();
+  return s || '🍽️';
 }
 
-function setHeader(menuObj) {
+function getCurrentMenu() {
+  return MENUS[currentMenuId] || MENUS.main;
+}
+
+function setHeader(title, subtitle) {
   const titleEl = document.querySelector('header h1');
   const subEl = document.querySelector('header .subtitle');
-  if (titleEl) titleEl.textContent = `📖 ${menuObj.title}`;
-  if (subEl) subEl.textContent = menuObj.subtitle;
+
+  if (titleEl) titleEl.textContent = title;
+  if (subEl) subEl.textContent = subtitle;
 }
 
-// --- Переключатель меню (Основное/Барное/Постное) ---
-function ensureMenuSwitch() {
-  // Вставляем переключатель перед навигацией категорий (внутрь .menu-nav)
-  const navContainer = document.querySelector('.menu-nav .container');
-  if (!navContainer) return;
+function renderMenu(categories) {
+  const container = document.getElementById('menuContainer');
+  if (!container) return;
 
-  // Если уже есть — не создаём второй раз
-  if (document.getElementById('menuSwitch')) return;
+  container.innerHTML = '';
 
-  const switchWrap = document.createElement('div');
-  switchWrap.id = 'menuSwitch';
-  switchWrap.style.display = 'flex';
-  switchWrap.style.gap = '10px';
-  switchWrap.style.flexWrap = 'wrap';
-  switchWrap.style.marginBottom = '12px';
+  categories.forEach(cat => {
+    const section = document.createElement('section');
+    section.className = 'category-section';
 
-  const makeBtn = (id, text) => {
-    const b = document.createElement('button');
-    b.className = 'nav-btn';
-    b.dataset.menuId = id;
-    b.textContent = text;
-    b.addEventListener('click', () => {
-      setCurrentMenu(id);
+    const h2 = document.createElement('h2');
+    h2.className = 'category-title';
+    h2.textContent = cat.category;
+    section.appendChild(h2);
+
+    const grid = document.createElement('div');
+    grid.className = 'menu-grid';
+
+    cat.items.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'menu-item';
+
+      const p = priceText(item.price);
+
+      card.innerHTML = `
+        <div class="item-image">${safeEmoji(item.emoji)}</div>
+        <h3 class="item-name">${item.name || ''}</h3>
+        <p class="item-description">${item.description || ''}</p>
+        ${p ? `<p class="item-price">${p}</p>` : ''}
+      `;
+
+      grid.appendChild(card);
     });
-    return b;
-  };
 
-  switchWrap.appendChild(makeBtn('main', '🍽️ Основное'));
-  switchWrap.appendChild(makeBtn('bar', '🍷 Барное'));
-  switchWrap.appendChild(makeBtn('lenten', '🌿 Постное'));
-
-  // Вставляем перед кнопками категорий
-  navContainer.parentElement.insertBefore(switchWrap, navContainer);
-
-  updateMenuSwitchActive();
-}
-
-function updateMenuSwitchActive() {
-  const buttons = document.querySelectorAll('#menuSwitch .nav-btn');
-  buttons.forEach(btn => {
-    const isActive = btn.dataset.menuId === currentMenuId;
-    btn.classList.toggle('active', isActive);
+    section.appendChild(grid);
+    container.appendChild(section);
   });
 }
 
-// --- Кнопки категорий (строим заново под текущее меню) ---
-function buildCategoryNav(menuObj) {
+// --- Category nav ---
+function rebuildCategoryButtons(menuObj) {
   const navContainer = document.querySelector('.menu-nav .container');
   if (!navContainer) return;
 
@@ -170,121 +156,114 @@ function buildCategoryNav(menuObj) {
   allBtn.textContent = 'Всё меню';
   navContainer.appendChild(allBtn);
 
-  menuObj.categories.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.className = 'nav-btn';
-    btn.dataset.category = cat.category;
-    btn.textContent = cat.category;
-    navContainer.appendChild(btn);
+  menuObj.categories.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'nav-btn';
+    b.dataset.category = c.category;
+    b.textContent = c.category;
+    navContainer.appendChild(b);
   });
 
-  // Обработчики категорий
-  const navBtns = navContainer.querySelectorAll('.nav-btn');
-  navBtns.forEach(btn => {
+  // handlers
+  const btns = navContainer.querySelectorAll('.nav-btn');
+  btns.forEach(btn => {
     btn.addEventListener('click', () => {
-      navBtns.forEach(b => b.classList.remove('active'));
+      btns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const category = btn.dataset.category;
-      filterByCategory(category);
+      const cat = btn.dataset.category;
+      if (cat === 'all') renderMenu(menuObj.categories);
+      else renderMenu(menuObj.categories.filter(x => x.category === cat));
     });
   });
 }
 
-function displayCategories(categories) {
-  const container = document.getElementById('menuContainer');
-  if (!container) return;
+// --- Menu switch (main/bar/lenten) ---
+function ensureMenuSwitch() {
+  if (document.getElementById('menuSwitch')) return;
 
-  container.innerHTML = '';
+  const nav = document.querySelector('.menu-nav');
+  if (!nav) return;
 
-  categories.forEach(category => {
-    const section = document.createElement('div');
-    section.className = 'category-section';
+  const wrap = document.createElement('div');
+  wrap.id = 'menuSwitch';
+  wrap.style.display = 'flex';
+  wrap.style.gap = '10px';
+  wrap.style.justifyContent = 'center';
+  wrap.style.flexWrap = 'wrap';
+  wrap.style.margin = '10px 0 14px';
 
-    const title = document.createElement('h2');
-    title.className = 'category-title';
-    title.textContent = category.category;
-    section.appendChild(title);
+  const mk = (id, label) => {
+    const b = document.createElement('button');
+    b.className = 'nav-btn';
+    b.dataset.menu = id;
+    b.textContent = label;
+    b.addEventListener('click', () => setMenu(id));
+    return b;
+  };
 
-    const grid = document.createElement('div');
-    grid.className = 'menu-grid';
+  wrap.appendChild(mk('main', '🍽️ Основное'));
+  wrap.appendChild(mk('bar', '🍷 Барное'));
+  wrap.appendChild(mk('lenten', '🌿 Постное'));
 
-    category.items.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'menu-item';
+  // Вставляем ПЕРЕД nav категориями (внутри <nav class="menu-nav">)
+  nav.insertBefore(wrap, nav.firstChild);
+}
 
-      const priceText = normalizePrice(item.price);
-
-      card.innerHTML = `
-        <div class="item-image">${safeEmoji(item)}</div>
-        <h3 class="item-name">${item.name}</h3>
-        <p class="item-description">${item.description || ''}</p>
-        ${priceText ? `<p class="item-price">${priceText}</p>` : ''}
-      `;
-
-      grid.appendChild(card);
-    });
-
-    section.appendChild(grid);
-    container.appendChild(section);
+function updateMenuSwitchActive() {
+  document.querySelectorAll('#menuSwitch .nav-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.menu === currentMenuId);
   });
 }
 
-// --- Фильтрация/поиск ---
-function getCurrentMenu() {
-  return MENUS[currentMenuId] || MENUS.main;
-}
-
-function filterByCategory(category) {
-  const menuObj = getCurrentMenu();
-  if (category === 'all') {
-    displayCategories(menuObj.categories);
-  } else {
-    const filtered = menuObj.categories.filter(c => c.category === category);
-    displayCategories(filtered);
-  }
-}
-
-function searchMenu(query) {
-  const menuObj = getCurrentMenu();
-
-  if (!query) {
-    displayCategories(menuObj.categories);
-    return;
-  }
-
-  const q = query.toLowerCase();
-
-  const filtered = menuObj.categories
-    .map(category => {
-      const items = category.items.filter(item =>
-        (item.name || '').toLowerCase().includes(q) ||
-        (item.description || '').toLowerCase().includes(q)
-      );
-      return { ...category, items };
-    })
-    .filter(category => category.items.length > 0);
-
-  displayCategories(filtered);
-}
-
-function setCurrentMenu(menuId) {
+function setMenu(menuId) {
   if (!MENUS[menuId]) return;
-  currentMenuId = menuId;
 
+  currentMenuId = menuId;
   const menuObj = getCurrentMenu();
-  setHeader(menuObj);
-  buildCategoryNav(menuObj);
+
+  setHeader(menuObj.title, menuObj.subtitle);
+  ensureMenuSwitch();
   updateMenuSwitchActive();
 
-  // сброс поиска
+  rebuildCategoryButtons(menuObj);
+
+  // reset search
   const searchInput = document.getElementById('searchInput');
   if (searchInput) searchInput.value = '';
 
-  displayCategories(menuObj.categories);
+  renderMenu(menuObj.categories);
 }
 
-// --- Scroll to top ---
+// --- search ---
+function initSearch() {
+  const searchInput = document.getElementById('searchInput');
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    const q = (e.target.value || '').toLowerCase();
+    const menuObj = getCurrentMenu();
+
+    if (!q) {
+      renderMenu(menuObj.categories);
+      return;
+    }
+
+    const filtered = menuObj.categories
+      .map(c => ({
+        ...c,
+        items: c.items.filter(i =>
+          (i.name || '').toLowerCase().includes(q) ||
+          (i.description || '').toLowerCase().includes(q)
+        )
+      }))
+      .filter(c => c.items.length > 0);
+
+    renderMenu(filtered);
+  });
+}
+
+// --- scroll top ---
 function initScrollToTop() {
   const scrollBtn = document.getElementById('scrollToTop');
   if (!scrollBtn) return;
@@ -301,16 +280,7 @@ function initScrollToTop() {
 
 document.addEventListener('DOMContentLoaded', () => {
   ensureMenuSwitch();
+  initSearch();
   initScrollToTop();
-
-  // Поиск
-  const searchInput = document.getElementById('searchInput');
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      searchMenu(e.target.value);
-    });
-  }
-
-  // старт
-  setCurrentMenu('main');
-});"}
+  setMenu('main');
+});
