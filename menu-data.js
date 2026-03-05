@@ -401,35 +401,39 @@ function renderMenu(categories) {
 }
 
 function rebuildCategoryButtons(menuObj) {
-  const navContainer = document.querySelector('.menu-nav .container');
+  const navContainer = document.querySelector('.menu-nav .nav-controls');
   if (!navContainer) return;
 
   navContainer.innerHTML = '';
 
-  const allBtn = document.createElement('button');
-  allBtn.className = 'nav-btn active';
-  allBtn.dataset.category = 'all';
-  allBtn.textContent = 'Всё меню';
-  navContainer.appendChild(allBtn);
-
-  menuObj.categories.forEach(c => {
+  const mkBtn = (label, onClick) => {
     const b = document.createElement('button');
     b.className = 'nav-btn';
-    b.dataset.category = c.category;
-    b.textContent = c.category;
-    navContainer.appendChild(b);
-  });
+    b.type = 'button';
+    b.textContent = label;
+    b.addEventListener('click', onClick);
+    return b;
+  };
 
-  const btns = navContainer.querySelectorAll('.nav-btn');
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+  // "Всё меню" = наверх к началу меню
+  navContainer.appendChild(
+    mkBtn('Всё меню', () => {
+      const first = document.querySelector('#menuContainer');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      collapseCategories(true);
+    })
+  );
 
-      const cat = btn.dataset.category;
-      if (cat === 'all') renderMenu(menuObj.categories);
-      else renderMenu(menuObj.categories.filter(x => x.category === cat));
-    });
+  // Кнопки категорий -> скролл к секции
+  menuObj.categories.forEach(c => {
+    navContainer.appendChild(
+      mkBtn(c.category, () => {
+        const id = `cat-${slugifyCategory(c.category)}`;
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        collapseCategories(true);
+      })
+    );
   });
 }
 
@@ -529,9 +533,43 @@ function initScrollToTop() {
   });
 }
 
+function collapseCategories(collapsed) {
+  const nav = document.querySelector('.menu-nav');
+  if (!nav) return;
+
+  nav.classList.toggle('is-collapsed', Boolean(collapsed));
+}
+
+function initCategoryCollapse() {
+  const btn = document.getElementById('toggleCategories');
+  if (!btn) return;
+
+  // стартуем в свернутом режиме на мобильных
+  if (window.innerWidth < 768) collapseCategories(true);
+
+  btn.addEventListener('click', () => {
+    const nav = document.querySelector('.menu-nav');
+    const isCollapsed = nav ? nav.classList.contains('is-collapsed') : false;
+    collapseCategories(!isCollapsed);
+  });
+
+  // Автосворачивание при прокрутке вниз (чтобы не мешало)
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+
+    // вниз — сворачиваем
+    if (y > lastY && y > 200) collapseCategories(true);
+
+    // вверх немного — можно оставить как есть (не разворачиваем автоматически)
+    lastY = y;
+  }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   ensureMenuSwitch();
   initSearch();
   initScrollToTop();
+  initCategoryCollapse();
   setMenu('main');
 });
