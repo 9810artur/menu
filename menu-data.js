@@ -21,7 +21,7 @@ const MENUS = {
           { name: 'Ассорти мясных деликатесов', weight: '250 г', description: 'Буженина собственного приготовления, язык говяжий, колбаса и куриный рулет с горчичным соусом', price: 850, emoji: '🥩' },
           { name: 'Говяжий язычок', weight: '130 г', description: 'Язык говяжий отварной с соусом хрена', price: 690, emoji: '🍖' },
           { name: 'Ассорти рыбное', weight: '200 г', description: 'Лосось с/с, сом копчёный, масляная рыба, тунец холодного копчения, лимон', price: 1050, emoji: '🐟' },
-          { name: 'Сельдь с картофелем', weight: '200 г', description: 'Сельдь, отварной картофель', price: 480, emoji: '🐟' },
+          { name: 'Сельдь с картофелем', weight: '200 г', description: 'Сельдь, о��варной картофель', price: 480, emoji: '🐟' },
           { name: 'Рулетики из баклажанов', weight: '5 шт', description: 'С баклажаном, творожным сыром и грецким орехом', price: 550, emoji: '🍆' },
           { name: 'Армянский погребок', weight: '400 г', description: 'Соленья в ассортименте', price: 750, emoji: '🥒' },
           { name: 'Лобио', weight: '250 г', description: 'Блюдо из красной фасоли с грецким орехом и чесноком', price: 490, emoji: '🫘' },
@@ -37,7 +37,8 @@ const MENUS = {
         items: [
           { name: 'Тёплый салат Жамэль', weight: '230 г', description: 'Нежный цыплёнок с брокколи и шампиньонами', price: 570, emoji: '🥗' },
           { name: 'Тёплый салат с Авелуком', weight: '200 г', description: 'Салат из горного щавеля-авелука с грецкими орехами и чесноком', price: 480, emoji: '🌿' },
-          { name: 'Салат Ереван', weight: '200 г', description: 'С телятиной, запечёнными баклажанами и фирме��ным соусом', price: 730, emoji: '🥗' },
+          // поправил "фирме��ным" -> "фирменным"
+          { name: 'Салат Ереван', weight: '200 г', description: 'С телятиной, запечёнными баклажанами и фирменным соусом', price: 730, emoji: '🥗' },
           { name: 'Салат Табуле', weight: '230 г', description: 'Традиционный овощной салат в западно-армянском стиле с булгуром', price: 480, emoji: '🥗' },
 
           { name: 'Салат Амберд', weight: '200 г', description: 'Куриное филе с грибами, маслинами, грецкими орехами и зёрнами граната (в корзиночках из лаваша)', price: 690, emoji: '🥗' },
@@ -56,7 +57,7 @@ const MENUS = {
       {
         category: 'Супы',
         items: [
-          { name: 'Спас', weight: '250 г', description: 'Суп из мацуна с пшеницей и маслом', price: 450, emoji: '🍲' },
+          { name: 'Спас', weight: '250 г', description: 'Суп из мацуна с п��еницей и маслом', price: 450, emoji: '🍲' },
           { name: 'Хашлама (ягнёнок/телятина)', weight: '300 г', description: 'Армянский суп. Сладкий перец, томаты и картофель', price: 490, emoji: '🍲' },
           { name: 'Пити с бараниной', weight: '300 г', description: 'Суп из нута с кусочками баранины', price: 490, emoji: '🍲' },
           { name: 'Харчо (ягнёнок/телятина)', weight: '300 г', description: 'Острый суп с рисом и томатной поджаркой', price: 490, emoji: '🍲' },
@@ -72,11 +73,12 @@ const MENUS = {
         category: 'Горячие закуски',
         items: [
           { name: 'Ханума', weight: '3 шт / 200 г или 10 шт / 700 г', description: 'Розы с начинкой из мясного фарша и лука, готовятся в томатном соусе', price: '390 / 990', emoji: '🥟' },
-          { name: 'Долма', weight: '250 г', description: 'Виноградные листья с говядиной. Подаётся с соусом из мацуна', price: 520, emoji: '🍃' },
+          { name: 'Долма', weight: '250 г', description: 'Виноградные листья с говядиной. Подаётся с ��оусом из мацуна', price: 520, emoji: '🍃' },
           { name: 'Цукини-гриль с креветками и сливочным соусом', weight: '250 г', description: '', price: 820, emoji: '🍤' },
-          { name: 'Мидии запечённые с грибами и сыром', weight: '250 г', description: 'Зелёные мидии, фаршированные шампиньонами и сыром моцарелла', price: 520, emoji: '🦪' },
+          { name: 'Мидии запечённые с грибами и сыром', weight: '250 ��', description: 'Зелёные мидии, фаршированные шампиньонами и сыром моцарелла', price: 520, emoji: '🦪' },
           { name: 'Жульен из курицы с грибами', weight: '250 г', description: '', price: 500, emoji: '🍄' },
-          { name: 'Арге��тинские креветки в медово-горчичном соусе', weight: '150 г', description: 'Лангустины в медово-горчичном соусе', price: 920, emoji: '🍤' }
+          // поправил "Арге��тинские" -> "Аргентинские"
+          { name: 'Аргентинские креветки в медово-горчичном соусе', weight: '150 г', description: 'Лангустины в медово-горчичном соусе', price: 920, emoji: '🍤' }
         ]
       },
 
@@ -130,7 +132,7 @@ const MENUS = {
           { name: 'Керусус', weight: '300 г', description: 'Молотая телятина с солёными огурцами и овощами в томатном соке', price: 690, emoji: '🍲' },
 
           { name: 'Жаркое по-домашнему', weight: '300 г', description: 'Домашняя свинина с картофелем и овощами', price: 650, emoji: '🍲' },
-          { name: 'Хрустящий цыплёнок с картофелем по-деревенски', weight: '420 г', description: 'Цыплёнок корнишон, маринованный в специях и обжаренный до золотистой корочки', price: 710, emoji: '🍗' },
+          { name: 'Хрус��ящий цыплёнок с картофелем по-деревенски', weight: '420 г', description: 'Цыплёнок корнишон, маринованный в специях и обжаренный до золотистой корочки', price: 710, emoji: '🍗' },
           { name: 'Плов из телятины', weight: '350 г', description: 'С рисом и барбарисом', price: 530, emoji: '🍚' },
           { name: 'Форель запечённая с овощами', weight: '350 г', description: 'Целая форель со сливочным маслом и овощами', price: 950, emoji: '🐟' },
           { name: 'Сёмга «Жамэль»', weight: '350 г', description: 'Авторское блюдо нежного лосося с диким рисом', price: 1100, emoji: '🐟' },
@@ -283,7 +285,7 @@ const MENUS = {
             name: 'Приветственное слово',
             weight: '',
             description:
-              'Дорогие друзья, ваше посещение нашего ресторана — большая честь для нас. Ресторан «Жамэль», расположенный в самом центре города, стремится предложить лучшую армянскую кухню: блюда по древним рецептам, авторские позиции от шеф-поваров и тёплую атмосферу. Мы будем рады видеть вас снова!',
+              'Дорогие друзья, ваше п��сещение нашего ресторана — большая честь для нас. Ресторан «Жамэль», расположенный в самом центре города, стремится предложить лучшую армянскую кухню: блюда по древним рецептам, авторские позиции от шеф-поваров и тёплую атмосферу. Мы будем рады видеть вас снова!',
             price: '',
             emoji: 'ℹ️'
           }
@@ -305,314 +307,316 @@ const MENUS = {
   },
 
   bar: {
-  id: 'bar',
-  title: 'Жамэль — Бар',
-  subtitle: 'Барное меню',
-  categories: [
-    {
-      category: 'Коктейли',
-      items: [
-        { name: 'Апероль Спритц', weight: '400 мл', description: '', price: 500, emoji: '🍹' },
-        { name: 'Лонг-Айленд', weight: '300 мл', description: '', price: 500, emoji: '🍹' },
-        { name: 'Зелёная фея', weight: '300 мл', description: '', price: 500, emoji: '🍹' },
-        { name: 'Мохито', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
-        { name: 'Киви бум', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
-        { name: 'Пина Колада', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
-        { name: 'Текила санрайз', weight: '300 мл', description: '', price: 400, emoji: '🍹' },
-        { name: 'Джин Тоник', weight: '400 мл', description: '', price: 400, emoji: '🍹' },
-        { name: 'Арбузный бум', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
-        { name: 'Маргарита', weight: '160 мл', description: '', price: 400, emoji: '🍹' },
-        { name: 'Виски-кола', weight: '300 мл', description: '', price: 400, emoji: '🥃' },
-        { name: 'Глинтвейн', weight: '160 мл', description: '', price: 400, emoji: '🍷' }
-      ]
-    },
+    id: 'bar',
+    title: 'Жамэль — Бар',
+    subtitle: 'Барное меню',
+    categories: [
+      {
+        category: 'Коктейли',
+        items: [
+          { name: 'Апероль Спритц', weight: '400 мл', description: '', price: 500, emoji: '🍹' },
+          { name: 'Лонг-Айленд', weight: '300 мл', description: '', price: 500, emoji: '🍹' },
+          { name: 'Зелёная фея', weight: '300 мл', description: '', price: 500, emoji: '🍹' },
+          { name: 'Мохито', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
+          { name: 'Киви бум', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
+          { name: 'Пина Колада', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
+          { name: 'Текила санрайз', weight: '300 мл', description: '', price: 400, emoji: '🍹' },
+          { name: 'Джин Тоник', weight: '400 мл', description: '', price: 400, emoji: '🍹' },
+          { name: 'Арбузный бум', weight: '300 мл', description: '', price: 450, emoji: '🍹' },
+          { name: 'Маргарита', weight: '160 мл', description: '', price: 400, emoji: '🍹' },
+          { name: 'Виски-кола', weight: '300 мл', description: '', price: 400, emoji: '🥃' },
+          { name: 'Глинтвейн', weight: '160 мл', description: '', price: 400, emoji: '🍷' }
+        ]
+      },
 
-    {
-      category: 'Домашние лимонады',
-      items: [
-        { name: 'Манго-Маракуйя', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
-        { name: 'Малина-Личи', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
-        { name: 'Эстрагон-Киви', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
-        { name: 'Гранат-Клубника', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
-        { name: 'Персик-Жасмин', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' }
-      ]
-    },
+      {
+        category: 'Домашние лимонады',
+        items: [
+          { name: 'Манго-Маракуйя', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
+          { name: 'Малина-Личи', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
+          { name: 'Эстрагон-Киви', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
+          { name: 'Гранат-Клубника', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' },
+          { name: 'Персик-Жасмин', weight: '0.3 л / 1 л', description: '', price: '250 / 450', emoji: '🍋' }
+        ]
+      },
 
-    {
-      category: 'Безалкогольные коктейли',
-      items: [
-        { name: 'Молочный коктейль (ваниль, клубника, шоколад)', weight: '300 мл', description: '', price: 350, emoji: '🥤' },
-        { name: 'Какао с маршмеллоу', weight: '300 мл', description: '', price: 350, emoji: '☕' },
-        { name: 'Горячий шоколад', weight: '300 мл', description: '', price: 350, emoji: '🍫' }
-      ]
-    },
+      {
+        category: 'Безалкогольные коктейли',
+        items: [
+          { name: 'Молочный коктейль (ваниль, клубника, шоколад)', weight: '300 мл', description: '', price: 350, emoji: '🥤' },
+          { name: 'Какао с маршмеллоу', weight: '300 мл', description: '', price: 350, emoji: '☕' },
+          { name: 'Горячий шоколад', weight: '300 мл', description: '', price: 350, emoji: '🍫' }
+        ]
+      },
 
-    {
-      category: 'В ассортименте',
-      items: [
-        { name: 'Вода газ/не газ', weight: '500 мл', description: '', price: 220, emoji: '💧' },
-        { name: 'Боржоми', weight: '500 мл', description: '', price: 300, emoji: '💧' },
-        { name: 'Лимонад Двин (в ассортименте)', weight: '500 мл', description: '', price: 300, emoji: '🥤' },
-        { name: 'Кока-кола стекло', weight: '330 мл', description: '', price: 270, emoji: '🥤' },
-        { name: 'Кока-кола добрый', weight: '500 мл', description: '', price: 200, emoji: '🥤' },
-        { name: 'Кока-кола добрый стекло', weight: '250 мл', description: '', price: 270, emoji: '🥤' },
-        { name: 'Энергетический напиток', weight: '250 мл', description: '', price: 300, emoji: '⚡' },
-        { name: 'Морс', weight: '250 мл', description: '', price: 250, emoji: '🫐' },
-        { name: 'Домашний компот (в ассортименте)', weight: '1 л', description: '', price: 450, emoji: '🍹' }
-      ]
-    },
+      {
+        category: 'В ассортименте',
+        items: [
+          { name: 'Вода газ/не газ', weight: '500 мл', description: '', price: 220, emoji: '💧' },
+          { name: 'Боржоми', weight: '500 мл', description: '', price: 300, emoji: '💧' },
+          { name: 'Лимонад Двин (в ассортименте)', weight: '500 мл', description: '', price: 300, emoji: '🥤' },
+          { name: 'Кока-кола стекло', weight: '330 мл', description: '', price: 270, emoji: '🥤' },
+          { name: 'Кока-кола добрый', weight: '500 мл', description: '', price: 200, emoji: '🥤' },
+          { name: 'Кока-кола добрый стекло', weight: '250 мл', description: '', price: 270, emoji: '🥤' },
+          { name: 'Энергетический напиток', weight: '250 мл', description: '', price: 300, emoji: '⚡' },
+          { name: 'Морс', weight: '250 мл', description: '', price: 250, emoji: '🫐' },
+          { name: 'Домашний компот (в ассортименте)', weight: '1 л', description: '', price: 450, emoji: '🍹' }
+        ]
+      },
 
-    {
-      category: 'Чай',
-      items: [
-        { name: 'Ассам', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Эрл-Грей', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Молочный Улун', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Сенча', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Таёжный', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Армянские традиции', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Малина-мята', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Абрикос-персик', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Чилийская вишня', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
-        { name: 'Гречишный', weight: '800 мл', description: '', price: 350, emoji: '🫖' }
-      ]
-    },
+      {
+        category: 'Чай',
+        items: [
+          { name: 'Ассам', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Эрл-Грей', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Молочный Улун', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Сенча', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Таёжный', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Армянские традиции', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Малина-мята', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Абрикос-персик', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Чилийская вишня', weight: '800 мл', description: '', price: 350, emoji: '🫖' },
+          { name: 'Гречишный', weight: '800 мл', description: '', price: 350, emoji: '🫖' }
+        ]
+      },
 
-    {
-      category: 'Авторский чай',
-      items: [
-        { name: 'Смородина-мята', weight: '800 мл', description: '', price: 440, emoji: '🫖' },
-        { name: 'Имбирный с яблоками', weight: '800 мл', description: '', price: 440, emoji: '🫖' },
-        { name: 'Мандарин-облепиха', weight: '800 мл', description: '', price: 440, emoji: '🫖' }
-      ]
-    },
+      {
+        category: 'Авторский чай',
+        items: [
+          { name: 'Смородина-мята', weight: '800 мл', description: '', price: 440, emoji: '🫖' },
+          { name: 'Имбирный с яблоками', weight: '800 мл', description: '', price: 440, emoji: '🫖' },
+          { name: 'Мандарин-облепиха', weight: '800 мл', description: '', price: 440, emoji: '🫖' }
+        ]
+      },
 
-    {
-      category: 'Кофе',
-      items: [
-        { name: 'Эспрессо', weight: '30 мл', description: '', price: 190, emoji: '☕' },
-        { name: 'Американо', weight: '160 мл', description: '', price: 190, emoji: '☕' },
-        { name: 'Капучино', weight: '300 мл', description: '', price: 300, emoji: '☕' },
-        { name: 'Латте', weight: '330 мл', description: '', price: 290, emoji: '☕' },
-        { name: 'Флэт уайт', weight: '300 мл', description: '', price: 290, emoji: '☕' },
-        { name: 'Раф', weight: '300 мл', description: '', price: 290, emoji: '☕' },
-        { name: 'Глясе', weight: '300 мл', description: '', price: 290, emoji: '🍨' },
-        { name: 'Бейлис капучино', weight: '160 мл', description: '', price: 300, emoji: '☕' },
-        { name: 'Ирландский кофе', weight: '160 мл', description: '', price: 300, emoji: '☕' },
-        { name: 'Кофе по-восточному', weight: '60 мл', description: '', price: 160, emoji: '☕' }
-      ]
-    },
+      {
+        category: 'Кофе',
+        items: [
+          { name: 'Эспрессо', weight: '30 мл', description: '', price: 190, emoji: '☕' },
+          { name: 'Американо', weight: '160 мл', description: '', price: 190, emoji: '☕' },
+          { name: 'Капучино', weight: '300 мл', description: '', price: 300, emoji: '☕' },
+          { name: 'Латте', weight: '330 мл', description: '', price: 290, emoji: '☕' },
+          { name: 'Флэт уайт', weight: '300 мл', description: '', price: 290, emoji: '☕' },
+          { name: 'Раф', weight: '300 мл', description: '', price: 290, emoji: '☕' },
+          { name: 'Глясе', weight: '300 мл', description: '', price: 290, emoji: '🍨' },
+          { name: 'Бейлис капучино', weight: '160 мл', description: '', price: 300, emoji: '☕' },
+          { name: 'Ирландский кофе', weight: '160 мл', description: '', price: 300, emoji: '☕' },
+          { name: 'Кофе по-восточному', weight: '60 мл', description: '', price: 160, emoji: '☕' }
+        ]
+      },
 
-    {
-      category: 'Водка',
-      items: [
-        { name: 'Хаски', weight: '50 мл', description: '', price: 220, emoji: '🥃' },
-        { name: 'Русский стандарт', weight: '50 мл', description: '', price: 250, emoji: '🥃' },
-        { name: 'Кремлин', weight: '50 мл', description: '', price: 300, emoji: '🥃' },
-        { name: 'Мамонт', weight: '50 мл', description: '', price: 350, emoji: '🥃' },
-        { name: 'Чистые россы', weight: '50 мл', description: '', price: 400, emoji: '🥃' },
-        { name: 'Белуга', weight: '50 мл', description: '', price: 400, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Водка',
+        items: [
+          { name: 'Хаски', weight: '50 мл', description: '', price: 220, emoji: '🥃' },
+          { name: 'Русский стандарт', weight: '50 мл', description: '', price: 250, emoji: '🥃' },
+          { name: 'Кремлин', weight: '50 мл', description: '', price: 300, emoji: '🥃' },
+          { name: 'Мамонт', weight: '50 мл', description: '', price: 350, emoji: '🥃' },
+          { name: 'Чистые россы', weight: '50 мл', description: '', price: 400, emoji: '🥃' },
+          { name: 'Белуга', weight: '50 мл', description: '', price: 400, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Водка Армения',
-      items: [
-        { name: 'Абрикосовая', weight: '50 мл', description: '', price: 280, emoji: '🥃' },
-        { name: 'Тутовая', weight: '50 мл', description: '', price: 280, emoji: '🥃' },
-        { name: 'Виноградная', weight: '50 мл', description: '', price: 280, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Водка Армения',
+        items: [
+          { name: 'Абрикосовая', weight: '50 мл', description: '', price: 280, emoji: '🥃' },
+          { name: 'Тутовая', weight: '50 мл', description: '', price: 280, emoji: '🥃' },
+          { name: 'Виноградная', weight: '50 мл', description: '', price: 280, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Текила/Ром',
-      items: [
-        { name: 'Голд/Бланко', weight: '50 мл', description: '', price: 350, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Текила/Ром',
+        items: [
+          { name: 'Голд/Бланко', weight: '50 мл', description: '', price: 350, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Ликёры',
-      items: [
-        { name: 'Ягермейстер', weight: '50 мл', description: '', price: 350, emoji: '🥃' },
-        { name: 'Лимончелло', weight: '50 мл', description: '', price: 350, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Ликёры',
+        items: [
+          { name: 'Ягермейстер', weight: '50 мл', description: '', price: 350, emoji: '🥃' },
+          { name: 'Лимончелло', weight: '50 мл', description: '', price: 350, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Пиво',
-      items: [
-        { name: 'Айрон Вудс Стаут', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Айсувайс пшеничное', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Петрус Трипль Эль', weight: '330 мл', description: '', price: 600, emoji: '🍺' },
-        { name: 'Хайдерггер Хель Лагер', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Руж Дэ флер фильтр. Вишневый эль', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Хугарден б/а', weight: '500 мл', description: '', price: 300, emoji: '🍺' }
-      ]
-    },
+      {
+        category: 'Пиво',
+        items: [
+          { name: 'Айрон Вудс Стаут', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Айсувайс пшеничное', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Петрус Трипль Эль', weight: '330 мл', description: '', price: 600, emoji: '🍺' },
+          { name: 'Хайдерггер Хель Лагер', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Руж Дэ флер фильтр. Вишневый эль', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Хугарден б/а', weight: '500 мл', description: '', price: 300, emoji: '🍺' }
+        ]
+      },
 
-    {
-      category: 'Армянское пиво',
-      items: [
-        { name: 'Дилиджан', weight: '450 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Киликия', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Гюмри', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
-        { name: 'Александрополь', weight: '500 мл', description: '', price: 350, emoji: '🍺' }
-      ]
-    },
+      {
+        category: 'Армянское пиво',
+        items: [
+          { name: 'Дилиджан', weight: '450 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Киликия', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Гюмри', weight: '500 мл', description: '', price: 350, emoji: '🍺' },
+          { name: 'Александрополь', weight: '500 мл', description: '', price: 350, emoji: '🍺' }
+        ]
+      },
 
-    {
-      category: 'Коньяк (Франция)',
-      items: [
-        { name: 'Мартель VS', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
-        { name: 'Мартель VSOP', weight: '50 мл', description: '', price: 1000, emoji: '🥃' },
-        { name: 'Хеннесси VS', weight: '50 мл', description: '', price: 600, emoji: '🥃' },
-        { name: 'Хеннесси VSOP', weight: '50 мл', description: '', price: 1850, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Коньяк (Франция)',
+        items: [
+          { name: 'Мартель VS', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
+          { name: 'Мартель VSOP', weight: '50 мл', description: '', price: 1000, emoji: '🥃' },
+          { name: 'Хеннесси VS', weight: '50 мл', description: '', price: 600, emoji: '🥃' },
+          { name: 'Хеннесси VSOP', weight: '50 мл', description: '', price: 1850, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Армянские коньяки',
-      items: [
-        { name: 'Арарат 5', weight: '50 мл', description: '', price: 450, emoji: '🥃' },
-        { name: 'Арарат Ani 7', weight: '50 мл', description: '', price: 600, emoji: '🥃' },
-        { name: 'Арарат Axtamar 10', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
-        { name: 'Арарат Dvin', weight: '50 мл', description: '', price: 1400, emoji: '🥃' },
-        { name: 'Арарат Vaspurakan 15', weight: '50 мл', description: '', price: 1300, emoji: '🥃' },
-        { name: 'Арарат Nairi 20', weight: '50 мл', description: '', price: 1600, emoji: '🥃' },
-        { name: 'Арарат Aznavour', weight: '50 мл', description: '', price: 3200, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Армянские коньяки',
+        items: [
+          { name: 'Арарат 5', weight: '50 мл', description: '', price: 450, emoji: '🥃' },
+          { name: 'Арарат Ani 7', weight: '50 мл', description: '', price: 600, emoji: '🥃' },
+          { name: 'Арарат Axtamar 10', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
+          { name: 'Арарат Dvin', weight: '50 мл', description: '', price: 1400, emoji: '🥃' },
+          { name: 'Арарат Vaspurakan 15', weight: '50 мл', description: '', price: 1300, emoji: '🥃' },
+          { name: 'Арарат Nairi 20', weight: '50 мл', description: '', price: 1600, emoji: '🥃' },
+          { name: 'Арарат Aznavour', weight: '50 мл', description: '', price: 3200, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Виски купажированный',
-      items: [
-        { name: 'Вильям Лоусонс', weight: '50 мл', description: '', price: 300, emoji: '🥃' },
-        { name: 'Чивас Ригал 12 лет', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
-        { name: 'Джеймсон', weight: '50 мл', description: '', price: 400, emoji: '🥃' },
-        { name: 'Джек Дэниелс', weight: '50 мл', description: '', price: 600, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Виски купажированный',
+        items: [
+          { name: 'Вильям Лоусонс', weight: '50 мл', description: '', price: 300, emoji: '🥃' },
+          { name: 'Чивас Ригал 12 лет', weight: '50 мл', description: '', price: 700, emoji: '🥃' },
+          { name: 'Джеймсон', weight: '50 мл', description: '', price: 400, emoji: '🥃' },
+          { name: 'Джек Дэниелс', weight: '50 мл', description: '', price: 600, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Виски односолодовый',
-      items: [
-        { name: 'Гленфиддик 12 лет', weight: '50 мл', description: '', price: 2000, emoji: '🥃' },
-        { name: 'Макаллан Трипл Каск', weight: '50 мл', description: '', price: 3000, emoji: '🥃' },
-        { name: 'Синглтон Даффтаун', weight: '50 мл', description: '', price: 1200, emoji: '🥃' }
-      ]
-    },
+      {
+        category: 'Виски односолодовый',
+        items: [
+          { name: 'Гленфиддик 12 лет', weight: '50 мл', description: '', price: 2000, emoji: '🥃' },
+          { name: 'Макаллан Трипл Каск', weight: '50 мл', description: '', price: 3000, emoji: '🥃' },
+          { name: 'Синглтон Даффтаун', weight: '50 мл', description: '', price: 1200, emoji: '🥃' }
+        ]
+      },
 
-    {
-      category: 'Вино белое',
-      items: [
-        { name: 'Пино гриджо (Италия)', weight: '750 мл', description: '', price: 3800, emoji: '🍷' },
-        { name: 'Сакко гави (Италия)', weight: '750 мл', description: '', price: 2900, emoji: '🍷' },
-        { name: 'Рислинг (Франция)', weight: '750 мл', description: '', price: 5200, emoji: '🍷' },
-        { name: 'Шабли (Франция)', weight: '750 мл', description: '', price: 5200, emoji: '🍷' },
-        { name: 'Алазанская долина (Грузия)', weight: '750 мл', description: '', price: 2300, emoji: '🍷' }
-      ]
-    },
+      {
+        category: 'Вино белое',
+        items: [
+          { name: 'Пино гриджо (Италия)', weight: '750 мл', description: '', price: 3800, emoji: '🍷' },
+          { name: 'Сакко гави (Италия)', weight: '750 мл', description: '', price: 2900, emoji: '🍷' },
+          { name: 'Рислинг (Франция)', weight: '750 мл', description: '', price: 5200, emoji: '🍷' },
+          { name: 'Шабли (Франция)', weight: '750 мл', description: '', price: 5200, emoji: '🍷' },
+          { name: 'Алазанская долина (Грузия)', weight: '750 мл', description: '', price: 2300, emoji: '🍷' }
+        ]
+      },
 
-    {
-      category: 'Вино красное',
-      items: [
-        { name: 'Кьянти (Италия)', weight: '750 мл', description: '', price: 2600, emoji: '🍷' },
-        { name: 'Киндзмараули (Грузия)', weight: '750 мл', description: '', price: 2300, emoji: '🍷' },
-        { name: 'Цвайгельт (Австрия)', weight: '750 мл', description: '', price: 2800, emoji: '🍷' },
-        { name: 'Пино Нуар (Франция)', weight: '750 мл', description: '', price: 2900, emoji: '🍷' },
-        { name: 'Мальбек (Аргентина)', weight: '750 мл', description: '', price: 4000, emoji: '🍷' }
-      ]
-    },
+      {
+        category: 'Вино красное',
+        items: [
+          { name: 'Кьянти (Италия)', weight: '750 мл', description: '', price: 2600, emoji: '🍷' },
+          { name: 'Киндзмараули (Грузия)', weight: '750 мл', description: '', price: 2300, emoji: '🍷' },
+          { name: 'Цвайгельт (Австрия)', weight: '750 мл', description: '', price: 2800, emoji: '🍷' },
+          { name: 'Пино Нуар (Франция)', weight: '750 мл', description: '', price: 2900, emoji: '🍷' },
+          { name: 'Мальбек (Аргентина)', weight: '750 мл', description: '', price: 4000, emoji: '🍷' }
+        ]
+      },
 
-    {
-      category: 'Вино розовое',
-      items: [
-        { name: 'Пфеффер Пинк (Италия)', weight: '750 мл', description: '', price: 4000, emoji: '🍷' },
-        { name: 'Олд Коуч Роуд (Новая Зеландия)', weight: '750 мл', description: '', price: 3000, emoji: '🍷' }
-      ]
-    },
+      {
+        category: 'Вино розовое',
+        items: [
+          { name: 'Пфеффер Пинк (Италия)', weight: '750 мл', description: '', price: 4000, emoji: '🍷' },
+          { name: 'Олд Коуч Роуд (Новая Зеландия)', weight: '750 мл', description: '', price: 3000, emoji: '🍷' }
+        ]
+      },
 
-    {
-      category: 'Игристое',
-      items: [
-        { name: 'Martini Prosecco', weight: '187 мл / 750 мл', description: '', price: '1150 / 3750', emoji: '🥂' },
-        { name: 'Martini Asti', weight: '187 мл / 750 мл', description: '', price: '1150 / 3750', emoji: '🥂' }
-      ]
-    },
+      {
+        category: 'Игристое',
+        items: [
+          { name: 'Martini Prosecco', weight: '187 мл / 750 мл', description: '', price: '1150 / 3750', emoji: '🥂' },
+          { name: 'Martini Asti', weight: '187 мл / 750 мл', description: '', price: '1150 / 3750', emoji: '🥂' }
+        ]
+      },
 
-    {
-      category: 'Домашнее',
-      items: [
-        { name: 'Каберне красное сух.', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
-        { name: 'Изабелла красное п/сл', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
-        { name: 'Шардоне белое сух', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
-        { name: 'Шардоне белое п/сл', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
-        { name: 'Ежевичное', weight: '150 мл', description: '', price: 350, emoji: '🍷' },
-        { name: 'Малиновое', weight: '150 мл', description: '', price: 350, emoji: '🍷' },
-        { name: 'Гранатовое', weight: '150 мл', description: '', price: 350, emoji: '🍷' }
-      ]
-    }
-  ]
-},
+      {
+        category: 'Домашнее',
+        items: [
+          { name: 'Каберне красное сух.', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
+          { name: 'Изабелла красное п/сл', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
+          { name: 'Шардоне белое сух', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
+          { name: 'Шардоне белое п/сл', weight: '150 мл', description: '', price: 300, emoji: '🍷' },
+          { name: 'Ежевичное', weight: '150 мл', description: '', price: 350, emoji: '🍷' },
+          { name: 'Малиновое', weight: '150 мл', description: '', price: 350, emoji: '🍷' },
+          { name: 'Гранатовое', weight: '150 мл', description: '', price: 350, emoji: '🍷' }
+        ]
+      }
+    ]
+  },
 
-lenten: {
-  id: 'lenten',
-  title: 'Жамэль — Постное',
-  subtitle: 'Постное меню',
-  categories: [
-    {
-      category: 'Салаты',
-      items: [
-        { name: 'Хумус', weight: '', description: '', price: 520, emoji: '🌿' },
-        { name: 'Табуле', weight: '', description: '', price: 520, emoji: '🌿' },
-        { name: 'Авелук с грецким орехом', weight: '', description: '', price: 600, emoji: '🌿' },
-        { name: 'Лобио из красной фасоли', weight: '', description: '', price: 600, emoji: '🌿' },
-        { name: 'Овощной салат с фирменным соусом и орехами', weight: '', description: '', price: 620, emoji: '🥗' },
-        { name: 'Теплый салат с жареными овощами', weight: '', description: '', price: 620, emoji: '🥗' },
-        { name: 'Фруктовое блаженство', weight: '', description: '', price: 540, emoji: '🍓' },
-        { name: 'Зеленый микс салат с авокадо и лимонной заправкой', weight: '', description: '', price: 610, emoji: '🥑' }
-      ]
-    },
-    {
-      category: 'Супы',
-      items: [
-        { name: 'Гороховый суп с копченными шампиньонами', weight: '', description: '', price: 600, emoji: '🍲' },
-        { name: 'Чечевичный суп с ароматными армянскими травами', weight: '', description: '', price: 600, emoji: '🍲' },
-        { name: 'Крем суп из тыквы', weight: '', description: '', price: 600, emoji: '🎃' },
-        { name: 'Суп из гриль-овощей', weight: '', description: '', price: 600, emoji: '🍲' }
-      ]
-    },
-    {
-      category: 'Выпечка из печи',
-      items: [
-        { name: 'Пицца с овощами', weight: '', description: '', price: 650, emoji: '🍕' },
-        { name: 'Хачапури со шпинатом', weight: '', description: '', price: 650, emoji: '🫓' },
-        { name: 'Ламаджо с фасолью', weight: '1 шт', description: '', price: 500, emoji: '🫓' }
-      ]
-    },
-    {
-      category: 'Горячие блюда',
-      items: [
-        { name: 'Долма с булгуром', weight: '', description: '', price: 650, emoji: '🍃' },
-        { name: 'Овощи на мангале', weight: '', description: '', price: 600, emoji: '🥦' },
-        { name: 'Картофель на мангале', weight: '100 г', description: '', price: 200, emoji: '🥔' },
-        { name: 'Шампиньоны на мангале', weight: '100 г', description: '', price: 300, emoji: '🍄' }
-      ]
-    },
-    {
-      category: 'Десерт',
-      items: [
-        { name: 'Запеченные яблоки с орехом и медом', weight: '1 шт', description: '', price: 500, emoji: '🍎' }
-      ]
-    }
-  ]
-},
+  lenten: {
+    id: 'lenten',
+    title: 'Жамэль — Постное',
+    subtitle: 'Постное меню',
+    categories: [
+      {
+        category: 'Салаты',
+        items: [
+          { name: 'Хумус', weight: '', description: '', price: 520, emoji: '🌿' },
+          { name: 'Табуле', weight: '', description: '', price: 520, emoji: '🌿' },
+          { name: 'Авелук с грецким орехом', weight: '', description: '', price: 600, emoji: '🌿' },
+          { name: 'Лобио из красной фасоли', weight: '', description: '', price: 600, emoji: '🌿' },
+          { name: 'Овощной салат с фирменным соусом и орехами', weight: '', description: '', price: 620, emoji: '🥗' },
+          { name: 'Теплый салат с жареными овощами', weight: '', description: '', price: 620, emoji: '🥗' },
+          { name: 'Фруктовое блаженство', weight: '', description: '', price: 540, emoji: '🍓' },
+          { name: 'Зеленый микс салат с авокадо и лимонной заправкой', weight: '', description: '', price: 610, emoji: '🥑' }
+        ]
+      },
+      {
+        category: 'Супы',
+        items: [
+          { name: 'Гороховый суп с копченными шампиньонами', weight: '', description: '', price: 600, emoji: '🍲' },
+          { name: 'Чечевичный суп с ароматными армянскими травами', weight: '', description: '', price: 600, emoji: '🍲' },
+          { name: 'Крем суп из тыквы', weight: '', description: '', price: 600, emoji: '🎃' },
+          { name: 'Суп из гриль-овощей', weight: '', description: '', price: 600, emoji: '🍲' }
+        ]
+      },
+      {
+        category: 'Выпечка из печи',
+        items: [
+          { name: 'Пицца с овощами', weight: '', description: '', price: 650, emoji: '🍕' },
+          { name: 'Хачапури со шпинатом', weight: '', description: '', price: 650, emoji: '🫓' },
+          { name: 'Ламаджо с фасолью', weight: '1 шт', description: '', price: 500, emoji: '🫓' }
+        ]
+      },
+      {
+        category: 'Горячие блюда',
+        items: [
+          { name: 'Долма с булгуром', weight: '', description: '', price: 650, emoji: '🍃' },
+          { name: 'Овощи на мангале', weight: '', description: '', price: 600, emoji: '🥦' },
+          { name: 'Картофель на мангале', weight: '100 г', description: '', price: 200, emoji: '🥔' },
+          { name: 'Шампиньоны на мангале', weight: '100 г', description: '', price: 300, emoji: '🍄' }
+        ]
+      },
+      {
+        category: 'Десерт',
+        items: [
+          { name: 'Запеченные яблоки с орехом и медом', weight: '1 шт', description: '', price: 500, emoji: '🍎' }
+        ]
+      }
+    ]
+  }
+}; // ✅ ВОТ ЭТОГО ЗАКРЫТИЯ У ТЕБЯ НЕ ХВАТАЛО
 
 let currentMenuId = 'main';
 
 function priceText(p) {
   if (p === null || p === undefined || p === '') return '';
+  // оставляем как у тебя: просто добавляем " ₽" к любому значению
   return `${p} ₽`;
 }
 
@@ -830,7 +834,7 @@ function initCategoryCollapse() {
   const btn = document.getElementById('toggleCategories');
   if (!btn) return;
 
-  // стартуем в свернутом режиме на мобильных
+  // стартуем в свернутом режиме на моби��ьных
   if (window.innerWidth < 768) collapseCategories(true);
 
   btn.addEventListener('click', () => {
